@@ -91,3 +91,26 @@ database.ref().on("child_added", function(childSnapshot) {
 
     $("#train-table > tbody").append(newRow);
 });
+
+//convert time to military
+var firstTimeConverted = moment(trainFirst, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+//current time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh.mm"));
+
+//difference between times
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("DIFFERENCE IN TIME: " + diffTime);
+
+//time apart (remainder)
+var tRemainder = diffTime % trainFreq;
+console.log(tRemainder);
+
+var tMinutesTillTrain = trainFreq - tRemainder;
+console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+//next train
+var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
