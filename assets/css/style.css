@@ -1,5 +1,64 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: lightslategray;
+}
+
 .jumbotron {
     background-image: url("../images/Abacab-Train-station-Taxis.jpg");
     background-size: 100% 100%;
     margin-top: 20px;
+    height: 400px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid black;
+}
+
+.text-center {
+    color: rgb(252, 217, 18);
+    font-weight: bolder;
+    text-shadow: -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid blue;
+}
+
+.card-header {
+    font-size: 25px;
+    font-weight: bolder;
+    background: blue;
+    color: gold;
+    text-shadow: 2px 2px black;
+    padding: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+thead {
+    font-weight: bold;
+    font-size: 20px;
+    background: lightgray;
+    text-shadow: 1px 1px white;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+#add-train-btn {
+    border: 1px solid black;
+    background: blue;
+    color: gold;
 }
