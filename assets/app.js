@@ -35,14 +35,11 @@ $("#add-train-btn").on("click", function(event) {
     //uploads train data to database
     database.ref().push(newTrain);
 
-    //change to modal
-    alert("Train successfully added");
-
     //clear form
-    $("#train-name-input").empty();
-    $("#destination-input").empty();
-    $("#first-train-input").empty();
-    $("#frequency-input").empty();
+    $("#train-name-input").val("");
+    $("#destination-input").val("");
+    $("#first-train-input").val("");
+    $("#frequency-input").val("");
     
 });
 
@@ -69,15 +66,20 @@ database.ref().on("child_added", function(childSnapshot) {
 
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    var nextConverted = moment(nextTrain).format("hh:mm a");
 
     //update html  
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDest),
         $("<td>").text(trainFreq),
-        $("<td>").text(nextTrain),
+        $("<td>").text(nextConverted),
         $("<td>").text(tMinutesTillTrain)
     );
 
     $("#train-table > tbody").append(newRow);
+
+// Handle the errors
+}, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
 });
